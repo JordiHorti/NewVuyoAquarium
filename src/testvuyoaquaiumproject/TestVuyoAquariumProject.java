@@ -240,12 +240,14 @@ public class TestVuyoAquariumProject {
         System.out.println("Quants dies vols posar?");
         pValors.comptadorDies = pLector.nextInt();
         //l'index "i" seran el dies
+                
         for (pValors.i = 0; pValors.i < pValors.macros.length; pValors.i++) {
+            // declarem un contador per mostrar el dia del valor
             // quan l'index sigui superior o igual al número de dies introduït per l'usuari, tencarem el bucle.
             if (pValors.i >= pValors.comptadorDies) {
                 break;
             }
-
+       
             System.out.println("");
             System.out.println("");
             System.out.println("introdueix el valor dels NO3 del dia: " + (pValors.i + 1));
@@ -273,20 +275,27 @@ public class TestVuyoAquariumProject {
             // Guardem el valor a la tercera columna i al dia corresponent (i)
             pValors.macros[pValors.i][3] = temperatura;
 
+            
             System.out.println("");
             System.out.println("");
             // A cada volta imprimim els valors de cada dia 
-            pValors.resultat = "NO3: " + pValors.macros[pValors.i][0] + " / PO4: " + pValors.macros[pValors.i][1] + " / K: " + pValors.macros[pValors.i][2] + " / Temperatura: " + pValors.macros[pValors.i][3];
+            pValors.resultat = "Dia " + pValors.comptador + ":" + " NO3: " + pValors.macros[pValors.i][0] + " / PO4: " + pValors.macros[pValors.i][1] + " / K: " + pValors.macros[pValors.i][2] + " / Temperatura: " + pValors.macros[pValors.i][3] + "\n";
             // Els imprimim amb una array
             System.out.println(pValors.resultat);
             System.out.println("");
-
+            Macros resultat = new Macros();
+            resultat.Escriu(pValors.resultat);
             // els valors ja els hem emmagatzemat a l'index "j"
             for (pValors.j = 0; pValors.j < pValors.macros[0].length; pValors.j++) {
 
             }
-        }
 
+                        pValors.comptador++;
+
+        }
+        
+        
+        ExecutaAlarmesLectures(pOpcions, pValors);
         pOpcions.opcio1= MN0_Inici;
         pOpcions.opcio2  = -1; //una vegada feta l'acció volem que a la següent volta de bucle escrigui les opcions del nivell 1 al que estem          
 
